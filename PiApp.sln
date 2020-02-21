@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1022
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiApp", "PiApp\PiApp.csproj", "{6A025236-0D58-45AE-A66C-4AF6BDD34D08}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{7C8B9E37-8893-4449-8D42-1D83CBF575C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiApp.Core", "PiApp.Core\PiApp.Core.csproj", "{2B98C1B6-C805-42DC-A5CD-B35230426BB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiApp.Data", "PiApp.Data\PiApp.Data.csproj", "{77288815-8BEC-4587-8C97-C9B1B488D554}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiApp.Services", "PiApp.Services\PiApp.Services.csproj", "{C19C5EF4-D028-4346-A608-62508E512AC2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A025236-0D58-45AE-A66C-4AF6BDD34D08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A025236-0D58-45AE-A66C-4AF6BDD34D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A025236-0D58-45AE-A66C-4AF6BDD34D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A025236-0D58-45AE-A66C-4AF6BDD34D08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B98C1B6-C805-42DC-A5CD-B35230426BB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B98C1B6-C805-42DC-A5CD-B35230426BB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B98C1B6-C805-42DC-A5CD-B35230426BB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B98C1B6-C805-42DC-A5CD-B35230426BB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77288815-8BEC-4587-8C97-C9B1B488D554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77288815-8BEC-4587-8C97-C9B1B488D554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77288815-8BEC-4587-8C97-C9B1B488D554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77288815-8BEC-4587-8C97-C9B1B488D554}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C19C5EF4-D028-4346-A608-62508E512AC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C19C5EF4-D028-4346-A608-62508E512AC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C19C5EF4-D028-4346-A608-62508E512AC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C19C5EF4-D028-4346-A608-62508E512AC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2B98C1B6-C805-42DC-A5CD-B35230426BB1} = {7C8B9E37-8893-4449-8D42-1D83CBF575C3}
+		{77288815-8BEC-4587-8C97-C9B1B488D554} = {7C8B9E37-8893-4449-8D42-1D83CBF575C3}
+		{C19C5EF4-D028-4346-A608-62508E512AC2} = {7C8B9E37-8893-4449-8D42-1D83CBF575C3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41F4329A-90EF-455E-8538-38EC0D42B8A8}
+	EndGlobalSection
+EndGlobal
