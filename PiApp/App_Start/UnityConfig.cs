@@ -1,10 +1,13 @@
 using PiApp.Core.Repositories;
 using PiApp.Core.UnitOfWork;
 using PiApp.Data;
+using PiApp.Services;
 using System;
 using System.Data.Entity;
 using Unity;
-using Unity.Lifetime;
+using Unity.Lifetime; //cai unity.aspnet.api
+using static PiApp.Services.CategoryService;
+using static PiApp.Services.FoodService;
 
 namespace PiApp
 {
@@ -13,6 +16,7 @@ namespace PiApp
     /// </summary>
     public static class UnityConfig
     {
+        #region Unity Container
         private static Lazy<IUnityContainer> container =
           new Lazy<IUnityContainer>(() =>
           {
@@ -25,7 +29,8 @@ namespace PiApp
         /// Configured Unity Container.
         /// </summary>
         public static IUnityContainer Container => container.Value;
-       
+        #endregion
+
         /// <summary>
         /// Registers the type mappings with the Unity container.
         /// </summary>
@@ -41,13 +46,15 @@ namespace PiApp
             // NOTE: To load from web.config uncomment the line below.
             // Make sure to add a Unity.Configuration to the using statements.
             // container.LoadConfiguration();
+            container
+          .RegisterType<DbContext, DataContext>(new HierarchicalLifetimeManager())
+          .RegisterType(typeof(IRepositoryAsync<>), typeof(Repository<>))
+          .RegisterType<IUnitOfWorkAsync, UnitOfWork>(new HierarchicalLifetimeManager())
 
+          .RegisterType<IFoodService, FoodService>()
+          .RegisterType<ICategoryService, CategoryService>();
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
-            container
-            .RegisterType<DbContext, DataContext>(new HierarchicalLifetimeManager())
-            .RegisterType(typeof(IRepositoryAsync<>), typeof(Repository<>))
-            .RegisterType<IUnitOfWorkAsync, UnitOfWork>(new HierarchicalLifetimeManager());
         }
     }
 }

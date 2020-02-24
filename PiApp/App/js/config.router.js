@@ -32,6 +32,15 @@ angular.module('app')
                 url: '/create',
                 templateUrl: '/home/createfood'
             })
+            .state('app.food.updateCategoryId', {  //moi them vao
+                url: '/updatecategoryId/:foodId',
+                templateUrl: '/home/updatecategoryid',
+                resolve: {
+                    deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load('/App/controller/updatecategoryCtrl.js'); // Resolve promise and load before view 
+                    }]
+                }
+            })
             .state('app.category', {
                 abstract: true,
                 url: '/category',
@@ -50,5 +59,6 @@ angular.module('app')
                 url: '/create',
                 templateUrl: '/category/create'
             })
+           
 
     });

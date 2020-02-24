@@ -10,10 +10,11 @@ namespace PiApp.Services
     public class Service<TEntity> : IService<TEntity> where TEntity : class
     {
         private readonly IRepositoryAsync<TEntity> _repository;
-        public Service(IRepositoryAsync<TEntity> repository)
+        public Service(IRepositoryAsync<TEntity> repository) // DI
         {
             _repository = repository;
         }
+
         public void Delete(object id)
         {
             _repository.Delete(id);
@@ -24,7 +25,7 @@ namespace PiApp.Services
             return _repository.Find(keyValues);
         }
 
-        public void Insert(TEntity entity)
+        public virtual void Insert(TEntity entity)
         {
             _repository.Insert(entity);
         }
@@ -34,7 +35,7 @@ namespace PiApp.Services
             return _repository.Queryable();
         }
 
-        public void Update(TEntity entity)
+        public virtual void Update(TEntity entity)
         {
             _repository.Update(entity);
         }

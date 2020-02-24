@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PiApp.Data
 {
-    public class Repository<TEntity> : IRepositoryAsync<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity>, IRepositoryAsync<TEntity> where TEntity : class
     {
         public DbContext _dbcontext;
         public DbSet<TEntity> _dbset;
@@ -26,6 +26,7 @@ namespace PiApp.Data
         {
             var entity = _dbset.Find(key);
             _dbset.Attach(entity);
+            _dbset.Remove(entity);
         }
 
         public Task<bool> DeleteAsync(params object[] keyValues)

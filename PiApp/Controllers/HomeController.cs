@@ -32,5 +32,9 @@ namespace PiApp.Controllers
         {
             return PartialView();
         }
+        public ActionResult UpdateCategoryId()
+        {
+            return PartialView();
+        }
     }
 }

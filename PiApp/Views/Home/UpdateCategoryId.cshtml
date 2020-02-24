@@ -1,0 +1,13 @@
+﻿
+<div class="wrapper-sm" ng-controller="UpdateCategoryCtrl as vm">
+    <div class="row">
+        <div class="col-md-12">
+            <div kendo-grid
+                 k-options="mainGridOptions"
+                 k-selectable="true"
+                 k-filterable='{ extra: false, messages: { info: "Filter by: " }, operators: { string: { contains: "Contains", startswith: "Starts with" } } }'>
+            </div>
+        </div>
+    </div>
+   
+</div>

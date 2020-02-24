@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.OData.Builder;
 using Microsoft.AspNet.OData.Extensions;
 using PiApp.Core.Models;
+using PiApp.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,8 +28,8 @@ namespace PiApp
         {
             ODataModelBuilder builder = new ODataConventionModelBuilder();
 
-            builder.EntitySet<Food>("Food");
-            builder.EntitySet<Category>("Category");
+            builder.EntitySet<FoodViewModel>("Food");
+            builder.EntitySet<CategoryViewModel>("Category");
 
             return builder.GetEdmModel();
         }

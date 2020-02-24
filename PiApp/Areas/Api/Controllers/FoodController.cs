@@ -3,59 +3,61 @@ using PiApp.Core.Models;
 using PiApp.Core.Repositories;
 using PiApp.Core.UnitOfWork;
 using PiApp.Data;
+using PiApp.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using System.Web.Mvc;
+using static PiApp.Services.FoodService;
 
 namespace PiApp.Areas.Api.Controllers
 {
     public class FoodController : ODataController
     {
-        private readonly IUnitOfWorkAsync unitOfWork;
-        public FoodController()
+        private readonly IUnitOfWorkAsync _unitOfWork;
+        private readonly IFoodService _foodservice;
+
+        public FoodController(IUnitOfWorkAsync unitOfWork,IFoodService foodService)
         {
-            unitOfWork = new UnitOfWork(new DataContext());
+            _unitOfWork = unitOfWork;
+            _foodservice = foodService;
         }
 
         [EnableQuery]
-        public IQueryable<Food> Get()
+        public IQueryable<FoodViewModel> Get()   //neu la Food thi se k Update dc..
         {
-            return unitOfWork.RepositoryAsync<Food>().Queryable();
-            
+            return _foodservice.GetAllFoods();
+        }
+        public IHttpActionResult Put(int key,FoodViewModel updatedfood) 
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            _foodservice.Update(key, updatedfood);
+            _unitOfWork.SaveChange();
+            return Updated(updatedfood);
+        }
+        public IHttpActionResult Post(FoodViewModel newfood)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            _foodservice.InsertFood(newfood);
+            _unitOfWork.SaveChange();
+            return Created(newfood);
         }
 
-
-
-        //private readonly DataContext _dbcontext = new DataContext(); //
-        //[EnableQuery]
-        //public IQueryable<Food> Get()
-        //{
-        //    return _dbcontext.Foods;
-        //}
-        ////add food
-        //public IHttpActionResult Post(Food food)
-        //{
-        //    var data = new Food
-        //    {
-        //        Name = food.Name,
-        //        Price = food.Price,
-        //        PricePromotion = food.PricePromotion,
-        //        CategoryId = food.CategoryId,
-        //        CreateDate = DateTime.Now
-        //    };
-        //    _dbcontext.Foods.Add(data);
-        //    _dbcontext.SaveChanges();
-        //    return Created(food);
-        //}
-
-        ////get 1 food
-        //public SingleResult<Food> Get([FromODataUri] int key)
-        //{
-        //    var result = _dbcontext.Foods.Where(x => x.Id == key);
-        //    return SingleResult.Create(result);
-        //}
+        public IHttpActionResult Delete(int key) //neu k phai tu key..se~ k Call function
+        {
+            _foodservice.Delete(key);
+            _unitOfWork.SaveChange();
+            return Ok();
+        }
+   
+        
     }
 }

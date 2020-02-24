@@ -11,12 +11,12 @@ angular.module('app')
         vm.toolbarTemplate = toolbarTemplate;
         vm.create = create;
         vm.submit = submit;
-        vm.destroy = destroy;
+
         function submit() {
             //alert(JSON.stringify(vm.model));
             $http({
                 method: 'POST',
-                url: '/odata/Students',
+                url: _url,
                 data: JSON.stringify(vm.model),
                 headers: {
                     'datatype': "JSON",
@@ -24,36 +24,16 @@ angular.module('app')
                 }
             })
                 .success(function () {
-                    $state.go('app.student.index');
+                    $state.go('app.category.index');
                 })
                 .error(function (data) {
                     console.log('error ' + data);
                 });
         }
-        function destroy() {
-            //alert(JSON.stringify(vm.model));
-            var grid = $('#staffgrid').data('kendoGrid');
-            var selectedItem = grid.dataItem(grid.select());
-            //alert(selectedItem.Id);
-            $http({
-                method: 'DELETE',
-                url: _url + '(' + selectedItem.Id + ')'
-            })
-                .success(function () {
-                    $('#staffgrid').data('kendoGrid').dataSource.read();
-                    $('#staffgrid').data('kendoGrid').refresh();
-                    //toaster.pop('success', 'Delete successfully');
-                })
-        }
         function create() {
-            $state.go('app.food');
+            $state.go('app.category.create');
         }
-        function goRegister(e) {
-            e.preventDefault();
-            var dataItem = this.dataItem($(e.currentTarget).closest("tr")); //lay ra data o 1 row
 
-            $state.go('app.student.register', { studentId: dataItem.Id });
-        }
         function toolbarTemplate() {
             return kendo.template($("#toolbar").html());
         }

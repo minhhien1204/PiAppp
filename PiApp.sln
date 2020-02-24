@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiApp.Data", "PiApp.Data\Pi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiApp.Services", "PiApp.Services\PiApp.Services.csproj", "{C19C5EF4-D028-4346-A608-62508E512AC2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiApp.Domain", "PiApp.Domain\PiApp.Domain.csproj", "{C8F5E04D-EC6D-40B5-BB80-92AD51EB5B48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{C19C5EF4-D028-4346-A608-62508E512AC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C19C5EF4-D028-4346-A608-62508E512AC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C19C5EF4-D028-4346-A608-62508E512AC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8F5E04D-EC6D-40B5-BB80-92AD51EB5B48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8F5E04D-EC6D-40B5-BB80-92AD51EB5B48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8F5E04D-EC6D-40B5-BB80-92AD51EB5B48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8F5E04D-EC6D-40B5-BB80-92AD51EB5B48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +49,7 @@ Global
 		{2B98C1B6-C805-42DC-A5CD-B35230426BB1} = {7C8B9E37-8893-4449-8D42-1D83CBF575C3}
 		{77288815-8BEC-4587-8C97-C9B1B488D554} = {7C8B9E37-8893-4449-8D42-1D83CBF575C3}
 		{C19C5EF4-D028-4346-A608-62508E512AC2} = {7C8B9E37-8893-4449-8D42-1D83CBF575C3}
+		{C8F5E04D-EC6D-40B5-BB80-92AD51EB5B48} = {7C8B9E37-8893-4449-8D42-1D83CBF575C3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {41F4329A-90EF-455E-8538-38EC0D42B8A8}
